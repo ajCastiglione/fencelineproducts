@@ -306,6 +306,7 @@ NAVIGATION STYLES
   max-width: 1500px;
   li {
     a {
+      position: relative;
       display: block;
       color: $gray;
       text-decoration: none;
@@ -313,8 +314,26 @@ NAVIGATION STYLES
       border-bottom: 2px solid transparent;
       transition: all 0.3s ease-in-out;
       font-size: 21px;
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $gray;
+        transform-origin: bottom right;
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+      }
       &:hover,
       &:focus {
+        background: none;
+        color: $secondary;
+        &:before {
+          transform-origin: bottom left;
+          transform: scaleX(1);
+        }
       }
     }
   }
@@ -324,7 +343,7 @@ NAVIGATION STYLES
   li.current_page_item,
   li.current_page_ancestor {
     a {
-      border-bottom: 1px solid $gray;
+      border-bottom: 2px solid $gray;
     }
   }
   /* end current highlighters */
@@ -333,6 +352,11 @@ NAVIGATION STYLES
 /****************************
 Home Section
 ****************************/
+.home {
+  .entry-content {
+    padding: 0;
+  }
+}
 .hero {
   position: relative;
   padding: 4rem 0;
@@ -341,6 +365,9 @@ Home Section
   background-position: center center;
   min-height: 70vh;
   z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .hero-content {
     color: $white;
@@ -374,6 +401,10 @@ Home Section
     height: 100%;
     z-index: -1;
   }
+}
+
+.products {
+  background-color: $secondary;
 }
 
 /****************************

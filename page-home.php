@@ -2,6 +2,7 @@
 /*
  Template Name: Home Page 
 */
+$hero = get_field('hero_img');
 ?>
 
 <?php get_header(); ?>
@@ -16,19 +17,43 @@
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-						<section class="hero" style="background-image:url(<?php $hero = get_field('hero_img');
-																															if (!empty($hero)) : echo $hero['url'];
-																															endif; ?>)">
-							<div class="large-wrapper">
-								<div class="hero-content">
-									<p class="hero-text"><?php echo get_field('hero_text'); ?></p>
-									<a href="<?php echo get_field('cta_link'); ?>" class="link"><?php echo get_field('cta_text'); ?></a>
-								</div>
-							</div>
-						</section>
+
 
 						<section class="entry-content cf" itemprop="articleBody">
-							<?php the_content(); ?>
+							<div class="hero" style="background-image:url(<?php if (!empty($hero)) : echo $hero['url'];
+																														endif; ?>)">
+								<div class="large-wrapper">
+									<div class="hero-content">
+										<p class="hero-text"><?php echo get_field('hero_text'); ?></p>
+										<a href="<?php echo get_field('cta_link'); ?>" class="link"><?php echo get_field('cta_text'); ?></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="products">
+								<div class="large-wrapper">
+
+									<?php if (have_rows('products')) : while (have_rows('products')) : the_row(); ?>
+											<h2 class="secondary-title"><?php $title = get_sub_field('title');
+																									if (!empty($title)) : echo $title;
+																									else : echo 'product name';
+																									endif; ?></h2>
+											<img src="<?php $img = get_sub_field('image');
+																if (!empty($img)) : echo $img[url];
+																else : echo get_template_directory_uri() . '/library/images/placeholder.png';
+																endif; ?>">
+											<p class="text"><?php $text = get_sub_field('text');
+																			if (!empty($text)) : echo $text;
+																			else : echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus sem quis mauris luctus, vitae sodales enim interdum. Praesent id odio in purus convallis accumsan ut id velit. In laoreet ac felis nec eleifend. Nulla tempor est nec malesuada feugiat. Proin lorem eros, fringilla congue magna ut, fermentum interdum quam. Suspendisse volutpat justo turpis, at accumsan diam pharetra ut.';
+																			endif; ?></p>
+											<a href="<?php $link = get_sub_field('cta_link');
+																if (!empty($link)) : echo $link;
+																else : echo '#';
+																endif; ?>" class="link view-more"><?php echo get_sub_field('cta_text'); ?></a>
+										<?php endwhile;
+								endif; ?>
+								</div>
+							</div>
 						</section>
 
 					</article>
