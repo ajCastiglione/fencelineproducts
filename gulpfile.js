@@ -63,7 +63,7 @@ gulp.task("min-images", () => {
 // Watch all files for compiling
 gulp.task("watch-scss", ["compile", "compile-login", "min-images"], () => {
   bs.init({
-    proxy: "https://fencelineproducts.local",
+    proxy: "https://flp.local",
     injectChanges: true,
     files: all
   });
