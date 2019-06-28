@@ -1,4 +1,12 @@
 /*********************
+Global Section
+*********************/
+
+.secondary-title {
+  font-size: 28px;
+}
+
+/*********************
 LAYOUT & GRID STYLES
 *********************/
 
@@ -126,6 +134,25 @@ Header Section
 #logo {
   a {
     font-size: 40px;
+  }
+}
+
+/****************************
+Home Section
+****************************/
+
+.inner-products {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.product {
+  width: 50%;
+  padding: 1rem;
+  .secondary-title {
+    font-size: 24px;
   }
 }
 

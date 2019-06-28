@@ -268,6 +268,11 @@ body {
   }
 }
 
+.secondary-title {
+  color: $gray;
+  font-size: 24px;
+}
+
 /****************************
 Header Section
 ****************************/
@@ -405,6 +410,52 @@ Home Section
 
 .products {
   background-color: $secondary;
+  padding-top: 2rem;
+}
+
+.product {
+  text-align: center;
+  .top {
+    background-color: $white;
+    padding: 0.5rem;
+  }
+  .secondary-title {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+  }
+  .link {
+    display: inline-block;
+    color: $gray;
+    border: 1px solid $gray;
+    padding: 0.5rem 2rem;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    outline: none;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    &:before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 100%;
+      right: 100%;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: $black;
+      transform-origin: center;
+      transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+      transition: transform 0.45s ease-in-out;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $white;
+      &:before {
+        transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+      }
+    }
+  }
 }
 
 /****************************
