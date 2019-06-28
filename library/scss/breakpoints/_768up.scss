@@ -156,6 +156,16 @@ Home Section
   }
 }
 
+.services {
+  .service {
+    width: 25%;
+    .fas {
+      color: $gray;
+      font-size: 30px;
+    }
+  }
+}
+
 /****************************
 Sidebar Section
 ****************************/

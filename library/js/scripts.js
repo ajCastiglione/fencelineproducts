@@ -55,7 +55,7 @@ function shortenProductDesc($) {
       .text()
       .split(" ");
     let newDescription = wordArr.splice(0, 8).join(" ") + "...";
-    $(description).text(newDescription);
+    $(description).html(newDescription);
   }
 }
 

@@ -458,6 +458,64 @@ Home Section
   }
 }
 
+.services {
+  .secondary-title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .inner-services {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    text-align: center;
+  }
+  .service {
+    padding: 0.5rem 1rem;
+    width: 50%;
+    .link {
+      transition: all 0.7s ease;
+      display: inline-block;
+      &:hover {
+        transform: scale(1.05);
+        color: $black;
+        .fas {
+          transform: rotateY(360deg);
+        }
+      }
+    }
+    .fas {
+      color: $gray;
+      font-size: 35px;
+      margin-bottom: 10px;
+      transition: all 0.7s ease;
+    }
+    .text {
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $gray;
+        transform-origin: bottom right;
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+      }
+      &:hover,
+      &:focus {
+        background: none;
+        color: $black;
+        &:before {
+          transform-origin: bottom left;
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
 /****************************
 Sidebar Section
 ****************************/

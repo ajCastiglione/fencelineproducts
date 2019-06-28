@@ -3,6 +3,7 @@
  Template Name: Home Page 
 */
 $hero = get_field('hero_img');
+$services_title = get_field('services_title');
 ?>
 
 <?php get_header(); ?>
@@ -28,11 +29,10 @@ $hero = get_field('hero_img');
 										<a href="<?php echo get_field('cta_link'); ?>" class="link"><?php echo get_field('cta_text'); ?></a>
 									</div>
 								</div>
-							</div>
+							</div><!-- /hero -->
 
 							<div class="products">
 								<div class="inner-products large-wrapper">
-
 									<?php if (have_rows('products')) : while (have_rows('products')) : the_row(); ?>
 											<div class="product">
 												<div class="top">
@@ -57,7 +57,30 @@ $hero = get_field('hero_img');
 										<?php endwhile;
 									endif; ?>
 								</div>
-							</div>
+							</div><!-- /products -->
+
+							<div class="services">
+								<h2 class="secondary-title"><?php echo $services_title; ?></h2>
+								<div class="inner-services large-wrapper">
+									<?php if (have_rows('services_offered')) : while (have_rows('services_offered')) : the_row(); ?>
+											<div class="service">
+												<a href="<?php $service_link = get_field('cta_link');
+																	if (!empty($service_link)) : echo $service_link;
+																	else : '#';
+																	endif; ?>" class="link">
+													<?php echo get_sub_field('icon'); ?>
+													<div class="text">
+														<?php $service_text = get_sub_field('text');
+														if (!empty($service_text)) : echo $service_text;
+														else : echo 'Lorem ipsum dolor sit amet, consect etuer';
+														endif; ?>
+													</div>
+												</a>
+											</div>
+										<?php endwhile;
+									endif; ?>
+								</div>
+							</div><!-- /services -->
 						</section>
 
 					</article>

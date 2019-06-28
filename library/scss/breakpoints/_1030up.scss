@@ -12,7 +12,14 @@ LAYOUT & GRID STYLES
 /****************************
 Home Section
 ****************************/
-
+// Featured products section
 .product {
   width: 25%;
+}
+
+// Services Section
+.services {
+  .service {
+    width: 16%;
+  }
 }
