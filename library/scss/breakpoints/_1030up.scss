@@ -23,3 +23,22 @@ Home Section
     width: 16%;
   }
 }
+
+/****************************
+Internal Section
+****************************/
+// About pg
+.page-template-page-internal {
+  .flex {
+    .left {
+      width: 65%;
+    }
+    .right {
+      width: 35%;
+    }
+  }
+
+  .offer {
+    width: 33.3%;
+  }
+}

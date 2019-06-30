@@ -187,6 +187,43 @@ Footer Section
 }
 
 /****************************
+Internal Section
+****************************/
+// About pg
+.page-template-page-internal {
+  .left {
+    .alignleft {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+
+  .flex {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    .left,
+    .right {
+      width: 50%;
+    }
+    .right {
+      padding: 0 1rem;
+    }
+  }
+
+  .inner-best-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .offer {
+    width: 50%;
+  }
+}
+
+/****************************
 Sidebar Section
 ****************************/
 

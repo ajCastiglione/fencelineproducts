@@ -268,9 +268,55 @@ body {
   }
 }
 
+.article-header {
+  background-color: darken($secondary, 10%);
+  .page-title {
+    max-width: 75%;
+    color: $gray;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    text-transform: uppercase;
+  }
+}
+
 .secondary-title {
   color: $gray;
   font-size: 24px;
+}
+
+.link {
+  display: inline-block;
+  color: $gray;
+  border: 1px solid $gray;
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+  z-index: 1;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+  margin-top: 1rem;
+  &:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 100%;
+    right: 100%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $black;
+    transform-origin: center;
+    transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+    transition: transform 0.45s ease-in-out;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $white;
+    &:before {
+      transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+    }
+  }
 }
 
 /****************************
@@ -618,6 +664,47 @@ Footer Section
   p {
     margin: 0;
     font-size: 18px;
+  }
+}
+
+/****************************
+Internal Section
+****************************/
+// About pg
+.page-template-page-internal {
+  .main-content {
+    background-color: $secondary;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
+  .left {
+    .alignleft {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+  .right {
+    .aside-title {
+      text-transform: uppercase;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  }
+
+  .best-section {
+    .secondary-title {
+      color: $black;
+    }
+    .item-title {
+      font-style: italic;
+    }
+  }
+  .offer {
+    padding: 0.5rem 1rem;
   }
 }
 
