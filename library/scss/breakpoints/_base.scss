@@ -433,19 +433,12 @@ Home Section
     font-size: 20px;
   }
   .link {
-    background-color: $white;
-    color: $gray;
+    background-color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
+    color: $black;
     margin-top: 1rem;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: 2px solid $secondary;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
     &:hover {
-      background-color: rgba(255, 255, 255, 0.5);
-      color: $black;
-      transform: scale(0.95);
+      color: $white;
     }
   }
   &:after {
@@ -528,7 +521,7 @@ Home Section
   .service {
     padding: 0.5rem 1rem;
     width: 50%;
-    .link {
+    .service-link {
       transition: all 0.7s ease;
       display: inline-block;
       &:hover {
@@ -674,6 +667,7 @@ Internal Section
 .page-template-page-internal {
   .main-content {
     background-color: $secondary;
+    padding-bottom: 2rem;
   }
   h2 {
     text-transform: uppercase;
@@ -696,6 +690,7 @@ Internal Section
   }
 
   .best-section {
+    margin: 2rem 0;
     .secondary-title {
       color: $black;
     }
@@ -705,6 +700,72 @@ Internal Section
   }
   .offer {
     padding: 0.5rem 1rem;
+  }
+}
+
+.googleMap {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  max-height: 350px;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.contact {
+  background-color: $secondary;
+  .left,
+  .right {
+    padding: 0.5rem 1rem;
+  }
+
+  .gform_wrapper {
+    margin: 0;
+  }
+  .gform_body {
+    li {
+      margin-top: 0 !important;
+    }
+    input,
+    textarea {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 !important;
+      border: none;
+      background-color: $white;
+    }
+  }
+  .gform_footer {
+    #gform_submit_button_1 {
+      background-color: $white;
+      border-radius: 0;
+      display: inline-block;
+      color: $gray;
+      border: 1px solid $gray;
+      padding: 0.5rem 2rem;
+      text-transform: uppercase;
+      z-index: 1;
+      position: relative;
+      outline: none;
+      overflow: hidden;
+      transition: all 0.4s ease-in-out;
+      margin-top: 1rem;
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+  .item-title {
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 0.5rem;
   }
 }
 

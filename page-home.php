@@ -68,7 +68,7 @@ $images = get_field('slider');
 												<a href="<?php $service_link = get_sub_field('cta_link');
 																	if (!empty($service_link)) : echo $service_link;
 																	else : '#';
-																	endif; ?>" class="link">
+																	endif; ?>" class="service-link">
 													<?php echo get_sub_field('icon'); ?>
 													<div class="text">
 														<?php $service_text = get_sub_field('text');

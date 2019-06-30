@@ -223,6 +223,19 @@ Internal Section
   }
 }
 
+.contact {
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .left,
+  .right {
+    width: 50%;
+  }
+}
+
 /****************************
 Sidebar Section
 ****************************/
