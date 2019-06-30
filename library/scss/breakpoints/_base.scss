@@ -18,7 +18,7 @@ LINK STYLES
 
 a,
 a:visited {
-  color: $blue;
+  color: inherit;
   /* on click */
   &:active {
   }
@@ -361,6 +361,9 @@ Home Section
   .entry-content {
     padding: 0;
   }
+  .page {
+    margin-bottom: 0;
+  }
 }
 .hero {
   position: relative;
@@ -368,7 +371,7 @@ Home Section
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  min-height: 70vh;
+  min-height: 55vh;
   z-index: 99;
   display: flex;
   align-items: center;
@@ -377,6 +380,8 @@ Home Section
   .hero-content {
     color: $white;
     text-align: center;
+    max-width: 850px;
+    margin: auto;
   }
   .hero-text {
     font-size: 20px;
@@ -384,6 +389,7 @@ Home Section
   .link {
     background-color: $white;
     color: $gray;
+    font-weight: bold;
     margin-top: 1rem;
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -459,9 +465,11 @@ Home Section
 }
 
 .services {
+  margin: 2rem 0;
   .secondary-title {
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 2rem;
   }
 
   .inner-services {
@@ -478,10 +486,11 @@ Home Section
       transition: all 0.7s ease;
       display: inline-block;
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.15);
         color: $black;
         .fas {
           transform: rotateY(360deg);
+          color: $black;
         }
       }
     }
@@ -515,7 +524,103 @@ Home Section
       }
     }
   }
+  .content {
+    margin-top: 1rem;
+  }
 }
+
+.slider {
+  background-color: $secondary;
+  padding: 3rem 0;
+  .owl-carousel {
+    width: 90%;
+    max-width: 1138px;
+    margin: auto;
+    position: relative;
+  }
+  .li {
+    list-style: none !important;
+    position: relative;
+    &:before {
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border: 0px solid $white;
+      text-align: center;
+    }
+    &:hover {
+      &:before {
+        border-width: 15px;
+      }
+    }
+  }
+  .slide {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .owl-next,
+  .owl-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: $gray !important;
+    transition: all 0.3s ease-in-out;
+    i {
+      font-size: 30px;
+    }
+    &:active,
+    &:hover {
+      background: none !important;
+      color: $black !important;
+    }
+  }
+  .owl-next {
+    right: -25px;
+  }
+  .owl-prev {
+    left: 0;
+  }
+}
+
+/****************************
+Footer Section
+****************************/
+.footer {
+  background-color: darken($gray, 15%);
+  color: $white;
+  padding: 2rem 0;
+}
+
+#inner-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-nav {
+  li a {
+    color: $white;
+    &:hover {
+      color: darken($white, 20%) !important;
+    }
+  }
+}
+
+.footer-nav,
+.copyright {
+  width: 100%;
+  text-align: center;
+  p {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
 /****************************
 Sidebar Section
 ****************************/

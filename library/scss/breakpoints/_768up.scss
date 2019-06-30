@@ -151,12 +151,15 @@ Home Section
 .product {
   width: 50%;
   padding: 1rem;
+  max-width: 350px;
+
   .secondary-title {
     font-size: 24px;
   }
 }
 
 .services {
+  margin: 4rem 0;
   .service {
     width: 25%;
     .fas {
@@ -164,6 +167,23 @@ Home Section
       font-size: 30px;
     }
   }
+}
+
+/****************************
+Footer Section
+****************************/
+
+#inner-footer {
+  justify-content: space-between;
+}
+
+.footer-nav,
+.copyright {
+  width: 50%;
+  text-align: left;
+}
+.copyright {
+  text-align: right;
 }
 
 /****************************

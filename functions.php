@@ -87,6 +87,16 @@ function minerva_url($url) {
 }
 add_filter( 'login_headerurl', 'minerva_url' );
 
+/************* Register New Navigation Menus *************/
+
+add_action( 'after_setup_theme', 'register_custom_nav_menus' );
+function register_custom_nav_menus() {
+	register_nav_menus( array(
+		'footer-nav' => 'Footer Navigation',
+	) );
+}
+
+
 /************* OEMBED SIZE OPTIONS *************/
 
 if ( ! isset( $content_width ) ) {

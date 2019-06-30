@@ -4,6 +4,7 @@
 */
 $hero = get_field('hero_img');
 $services_title = get_field('services_title');
+$images = get_field('slider');
 ?>
 
 <?php get_header(); ?>
@@ -64,7 +65,7 @@ $services_title = get_field('services_title');
 								<div class="inner-services large-wrapper">
 									<?php if (have_rows('services_offered')) : while (have_rows('services_offered')) : the_row(); ?>
 											<div class="service">
-												<a href="<?php $service_link = get_field('cta_link');
+												<a href="<?php $service_link = get_sub_field('cta_link');
 																	if (!empty($service_link)) : echo $service_link;
 																	else : '#';
 																	endif; ?>" class="link">
@@ -79,8 +80,21 @@ $services_title = get_field('services_title');
 											</div>
 										<?php endwhile;
 									endif; ?>
+									<div class="content"><?php echo get_field('services_content'); ?></div>
 								</div>
 							</div><!-- /services -->
+
+							<div class="slider">
+									<?php if( $images ): ?>
+										<ul class="owl-carousel owl-theme">
+												<?php foreach( $images as $image ): ?>
+														<li class="li">
+															<img class="slide" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+														</li>
+												<?php endforeach; ?>
+										</ul>
+								<?php endif; ?>
+							</div>
 						</section>
 
 					</article>
