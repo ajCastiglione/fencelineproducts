@@ -244,3 +244,16 @@ Sidebar Section
 .sidebar {
     margin: 0;
 }
+
+/****************************
+Singles Section
+****************************/
+.product-single {
+    .product-header {
+        gap: 25px;
+        grid-template-columns: 1.5fr 1fr;
+        &__content {
+            font-size: 18px;
+        }
+    }
+}

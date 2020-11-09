@@ -2,11 +2,11 @@
 LAYOUT & GRID STYLES
 *********************/
 .wrap {
-  width: 990px;
+    width: 990px;
 }
 
 .large-wrapper {
-  width: 80%;
+    width: 80%;
 }
 
 /****************************
@@ -14,14 +14,14 @@ Home Section
 ****************************/
 // Featured products section
 .product {
-  width: 25%;
+    width: 25%;
 }
 
 // Services Section
 .services {
-  .service {
-    width: 16%;
-  }
+    .service {
+        width: 16%;
+    }
 }
 
 /****************************
@@ -29,25 +29,35 @@ Internal Section
 ****************************/
 // About pg
 .page-template-page-internal {
-  .flex {
-    .left {
-      width: 65%;
+    .flex {
+        .left {
+            width: 65%;
+        }
+        .right {
+            width: 35%;
+        }
     }
-    .right {
-      width: 35%;
-    }
-  }
 
-  .offer {
-    width: 33.3%;
-  }
+    .offer {
+        width: 33.3%;
+    }
 }
 
 .contact {
-  .left {
-    width: 30%;
-  }
-  .right {
-    width: 70%;
-  }
+    .left {
+        width: 30%;
+    }
+    .right {
+        width: 70%;
+    }
+}
+
+/****************************
+Singles Section
+****************************/
+.product-single {
+    .product-header {
+        gap: 45px;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
