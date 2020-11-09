@@ -1,31 +1,87 @@
 const gulp = require("gulp");
+const { src, dest } = require("gulp");
 const plumber = require("gulp-plumber");
 const sass = require("gulp-sass");
+const sassGlob = require("gulp-sass-glob");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
-const image = require("gulp-image");
 const bs = require("browser-sync");
 
-const scss = ["library/scss/*/*.scss"];
+const fs = require("fs");
+const path = require("path");
+const mergeStream = require("merge-stream");
+const concat = require("gulp-concat");
+const cssnano = require("gulp-cssnano");
+const sourcemaps = require("gulp-sourcemaps");
+const gulpif = require("gulp-if");
+
+const env = process.env.NODE_ENV || "development";
+const isDevelopment = env === "development";
+
+const componentSrc = path.join(__dirname, "blocks");
+const componentDist = path.join(__dirname, "library/dist");
+console.log(componentSrc);
+
+const blocks = ["blocks/**/*.scss"];
+
+const scss = ["library/scss/*/*.scss", "blocks/**/*.scss"];
 const imgs = ["library/images/*"];
-const all = ["library/*.php", "*.php", "*/*.php", "library/js/*.js"];
+const all = [
+  "library/*.php",
+  "*.php",
+  "*/*.php",
+  "**/**/*.php",
+  "library/js/*.js",
+  // "library/scss/*/*.scss",
+  "blocks/**/*.scss",
+];
+
+const getFolders = (dir) =>
+  fs
+    .readdirSync(dir)
+    .filter((file) => fs.statSync(path.join(dir, file)).isDirectory());
+
+gulp.task("compile-blocks", function () {
+  return mergeStream(
+    ...getFolders(componentSrc).map((folder) =>
+      src(path.join(componentSrc, folder, "*.scss"))
+        .pipe(gulpif(isDevelopment, sourcemaps.init()))
+        .pipe(sass())
+        .pipe(concat(folder + ".css"))
+        .pipe(
+          postcss([
+            autoprefixer({
+              browsers: ["last 2 versions"],
+              cascade: false,
+              grid: true,
+            }),
+          ])
+        )
+        .pipe(gulpif(!isDevelopment, cssnano()))
+        .pipe(gulpif(isDevelopment, sourcemaps.write(".")))
+        .pipe(dest(path.join(componentDist, folder)))
+    )
+  );
+});
 
 //Compile scss
 gulp.task("compile", () => {
   return gulp
-    .src("./library/scss/*.scss")
+    .src("./library/scss/style.scss")
+    .pipe(sassGlob())
     .pipe(plumber())
     .pipe(
       sass({
-        outputStyle: "compressed"
+        outputStyle: "compressed",
       }).on("error", sass.logError)
     )
     .pipe(
       postcss([
         autoprefixer({
           browsers: ["last 2 versions"],
-          cascade: false
-        })
+          cascade: false,
+          grid: true,
+        }),
       ])
     )
     .pipe(gulp.dest("./library/css"))
@@ -38,37 +94,32 @@ gulp.task("compile-login", () => {
     .pipe(plumber())
     .pipe(
       sass({
-        outputStyle: "compressed"
+        outputStyle: "compressed",
       }).on("error", sass.logError)
     )
     .pipe(
       postcss([
         autoprefixer({
           browsers: ["last 2 versions"],
-          cascade: false
-        })
+          cascade: false,
+        }),
       ])
     )
     .pipe(gulp.dest("./library/css"));
 });
 
-// Compress images and return them to folder
-gulp.task("min-images", () => {
-  gulp
-    .src("./library/images/*")
-    .pipe(image())
-    .pipe(gulp.dest("./library/images"));
+// Watch all files for compiling
+gulp.task("init", () => {
+  bs.init({
+    proxy: "fencelineproducts.test",
+    injectChanges: true,
+    files: all,
+  });
+  gulp.watch(scss, gulp.series("compile", "compile-login"));
+  gulp.watch(blocks, gulp.series("compile-blocks"));
 });
 
-// Watch all files for compiling
-gulp.task("watch-scss", ["compile", "compile-login", "min-images"], () => {
-  bs.init({
-    proxy: "https://fencelineproducts.local",
-    injectChanges: true,
-    files: all
-  });
-  gulp.watch(scss, ["compile", "compile-login"]);
-});
+gulp.task("build", gulp.parallel("compile-blocks", "compile", "compile-login"));
 
 // Start the process
-gulp.task("default", ["watch-scss"]);
+gulp.task("default", gulp.series("init"));
