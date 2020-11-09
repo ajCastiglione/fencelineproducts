@@ -3,7 +3,7 @@ Global Section
 *********************/
 
 .secondary-title {
-  font-size: 28px;
+    font-size: 28px;
 }
 
 /*********************
@@ -11,11 +11,11 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-  width: 760px;
+    width: 760px;
 }
 
 .large-wrapper {
-  width: 85%;
+    width: 85%;
 }
 
 /*********************
@@ -23,87 +23,87 @@ NAVIGATION STYLES
 *********************/
 
 .nav {
-  border: 0;
-  ul {
-    background: none;
-    margin-top: 0;
-  }
-  li {
-    display: inline-block;
-    a {
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
+    border: 0;
+    ul {
+        background: none;
+        margin-top: 0;
     }
-    &:first-child {
-    }
-    &:last-child {
-    }
-    /*
-		plan your menus and drop-downs wisely.
-		*/
-    ul.sub-menu,
-    ul.children {
-      margin-top: 0;
-      border: 1px solid #ccc;
-      border-top: 0;
-      position: absolute;
-      visibility: hidden;
-      z-index: 8999;
-      li {
+    li {
+        display: inline-block;
         a {
-          padding-left: 10px;
-          border-right: 0;
-          display: block;
-          width: 180px;
-          border-bottom: 1px solid #ccc;
-          &:hover,
-          &:focus {
-          }
-          &:link {
-          }
+            &:hover,
+            &:focus {
+                color: darken($blue, 10%);
+            }
         }
         &:first-child {
         }
         &:last-child {
-          a {
-            border-bottom: 0;
-          }
         }
         /*
+		plan your menus and drop-downs wisely.
+		*/
+        ul.sub-menu,
+        ul.children {
+            margin-top: 0;
+            border: 1px solid #ccc;
+            border-top: 0;
+            position: absolute;
+            visibility: hidden;
+            z-index: 8999;
+            li {
+                a {
+                    padding-left: 10px;
+                    border-right: 0;
+                    display: block;
+                    width: 180px;
+                    border-bottom: 1px solid #ccc;
+                    &:hover,
+                    &:focus {
+                    }
+                    &:link {
+                    }
+                }
+                &:first-child {
+                }
+                &:last-child {
+                    a {
+                        border-bottom: 0;
+                    }
+                }
+                /*
 				if you need to go deeper, go nuts
 				just remember deeper menus suck
 				for usability. k, bai.
 				*/
-        ul {
-          top: 0;
-          left: 100%;
+                ul {
+                    top: 0;
+                    left: 100%;
+                }
+            }
+            /* highlight sub-menu current page */
+            li.current-menu-item,
+            li.current_page_item,
+            li.current_page_ancestor {
+                a {
+                }
+            }
         }
-      }
-      /* highlight sub-menu current page */
-      li.current-menu-item,
-      li.current_page_item,
-      li.current_page_ancestor {
+        /* showing sub-menus */
+        &:hover > ul {
+            top: auto;
+            visibility: visible;
+        }
+    }
+    /* end .menu ul li */
+    /* highlight current page */
+    li.current-menu-item,
+    li.current_page_item,
+    li.current_page_ancestor {
         a {
         }
-      }
     }
-    /* showing sub-menus */
-    &:hover > ul {
-      top: auto;
-      visibility: visible;
-    }
-  }
-  /* end .menu ul li */
-  /* highlight current page */
-  li.current-menu-item,
-  li.current_page_item,
-  li.current_page_ancestor {
-    a {
-    }
-  }
-  /* end current highlighters */
+    /* end current highlighters */
 }
 
 /* end .nav */
@@ -113,28 +113,28 @@ SIDEBARS & ASIDES
 *********************/
 
 .widget {
-  padding: 0 10px;
-  margin: 2.2em 0;
-  ul {
-    li {
-      margin-bottom: 0.75em;
+    padding: 0 10px;
+    margin: 2.2em 0;
+    ul {
+        li {
+            margin-bottom: 0.75em;
 
-      /* deep nesting */
-      ul {
-        margin-top: 0.75em;
-        padding-left: 1em;
-      }
+            /* deep nesting */
+            ul {
+                margin-top: 0.75em;
+                padding-left: 1em;
+            }
+        }
     }
-  }
 }
 
 /****************************
 Header Section
 ****************************/
 #logo {
-  a {
-    font-size: 40px;
-  }
+    a {
+        font-size: 40px;
+    }
 }
 
 /****************************
@@ -142,31 +142,32 @@ Home Section
 ****************************/
 
 .inner-products {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .product {
-  width: 50%;
-  padding: 1rem;
-  max-width: 350px;
+    width: 50%;
+    padding: 1rem;
+    max-width: 350px;
 
-  .secondary-title {
-    font-size: 24px;
-  }
+    .secondary-title {
+        font-size: 24px;
+        min-height: 66px;
+    }
 }
 
 .services {
-  margin: 4rem 0;
-  .service {
-    width: 25%;
-    .fas {
-      color: $gray;
-      font-size: 30px;
+    margin: 4rem 0;
+    .service {
+        width: 25%;
+        .fas {
+            color: $gray;
+            font-size: 30px;
+        }
     }
-  }
 }
 
 /****************************
@@ -174,16 +175,16 @@ Footer Section
 ****************************/
 
 #inner-footer {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
 .footer-nav,
 .copyright {
-  width: 50%;
-  text-align: left;
+    width: 50%;
+    text-align: left;
 }
 .copyright {
-  text-align: right;
+    text-align: right;
 }
 
 /****************************
@@ -191,49 +192,49 @@ Internal Section
 ****************************/
 // About pg
 .page-template-page-internal {
-  .left {
-    .alignleft {
-      float: left;
-      margin-right: 10px;
+    .left {
+        .alignleft {
+            float: left;
+            margin-right: 10px;
+        }
     }
-  }
 
-  .flex {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
+    .flex {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
 
-    .left,
-    .right {
-      width: 50%;
+        .left,
+        .right {
+            width: 50%;
+        }
+        .right {
+            padding: 0 1rem;
+        }
     }
-    .right {
-      padding: 0 1rem;
-    }
-  }
 
-  .inner-best-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-  .offer {
-    width: 50%;
-  }
+    .inner-best-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .offer {
+        width: 50%;
+    }
 }
 
 .contact {
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
-  }
-  .left,
-  .right {
-    width: 50%;
-  }
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .left,
+    .right {
+        width: 50%;
+    }
 }
 
 /****************************
@@ -241,5 +242,5 @@ Sidebar Section
 ****************************/
 
 .sidebar {
-  margin: 0;
+    margin: 0;
 }

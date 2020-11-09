@@ -1,5 +1,5 @@
 function shortenProductDesc($) {
-  let descriptions = $(".text");
+  let descriptions = $(".product .text");
   for (let description of descriptions) {
     let wordArr = $(description).text().split(" ");
     let newDescription = wordArr.splice(0, 8).join(" ") + "...";
