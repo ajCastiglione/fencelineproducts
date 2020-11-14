@@ -2,22 +2,21 @@
 $products = get_field('products');
 $services_title = get_field('services_title');
 $services = get_field('services_offered');
-$images = get_field('slider');
+$form = do_shortcode("[gravityform id='1' title='false' description='false' ajax='true']");
+// $images = get_field('slider');
 ?>
 <div class="products">
     <div class="inner-products large-wrapper">
         <?php foreach ($products as $prod_id) :
             $title = get_the_title($prod_id);
             $img = get_the_post_thumbnail_url($prod_id, 'full') ? get_the_post_thumbnail_url($prod_id, 'full') : get_template_directory_uri() . '/library/images/placeholder.png';
-            $text = get_the_content(null, null, $prod_id) ? get_the_content(null, null, $prod_id) : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus sem quis mauris luctus, vitae sodales enim interdum. Praesent id odio in purus convallis accumsan ut id velit. In laoreet ac felis nec eleifend. Nulla tempor est nec malesuada feugiat. Proin lorem eros, fringilla congue magna ut, fermentum interdum quam. Suspendisse volutpat justo turpis, at accumsan diam pharetra ut.';
-            $link = get_permalink($prod_id);
+            $link = get_permalink(11);
         ?>
             <div class="product">
                 <div class="top">
                     <h2 class="secondary-title"><?= !empty($title) ? $title : 'product name'; ?></h2>
-                    <img src="<?= $img ?>">
+                    <img class='product-image' src="<?= $img ?>">
                 </div>
-                <div class="text"><?= $text ?></div>
                 <a class="link" href="<?= $link; ?>" class="link view-more">learn more</a>
             </div>
         <?php endforeach; ?>
@@ -45,6 +44,11 @@ $images = get_field('slider');
     </div>
 </div><!-- /services -->
 
+<div class="form">
+    <div class="form-title">Contact us today!</div>
+    <?= $form ?>
+</div>
+<?php /*
 <div class="slider">
     <?php if ($images) : ?>
         <ul class="owl-carousel owl-theme">
@@ -56,3 +60,4 @@ $images = get_field('slider');
         </ul>
     <?php endif; ?>
 </div>
+*/ ?>
