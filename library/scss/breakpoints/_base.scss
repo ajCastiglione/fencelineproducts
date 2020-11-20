@@ -891,6 +891,14 @@ Internal Section
                 }
             }
         }
+        .img-wrapper {
+            text-align: center;
+            .form-img {
+                max-width: 100%;
+                width: 150px;
+                margin: auto;
+            }
+        }
     }
 }
 

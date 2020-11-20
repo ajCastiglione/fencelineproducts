@@ -35,6 +35,9 @@ $form_title = get_field('form_title');
 										<div class="form">
 											<h2 class="form-title"><?= $form_title ?></h2>
 											<?= $form ?>
+											<div class="img-wrapper">
+												<img class="form-img" src="<?= get_template_directory_uri() . '/library/images/AY_DealerShield-green.png' ?>" alt="Active Yards Dealer">
+											</div>
 										</div>
 									</div>
 								</div>
