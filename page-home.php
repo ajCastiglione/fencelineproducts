@@ -22,8 +22,11 @@ $hero = get_field('hero_img');
 							<div class="hero" style="background-image:url(<?= $hero['url']; ?>)">
 								<div class="large-wrapper">
 									<div class="hero-content">
-										<p class="hero-text"><?php echo get_field('hero_text'); ?></p>
+										<div class="hero-text"><?php echo get_field('hero_text'); ?></div>
 										<a href="<?php echo get_field('cta_link'); ?>" class="link"><?php echo get_field('cta_text'); ?></a>
+										<div class="ay-logo">
+											<img src="https://www.fencelineproducts.com/wp-content/uploads/2020/12/ActiveYardsAuthorizedDealerWithTag-green.png" width="250">
+										</div>
 									</div>
 								</div>
 							</div><!-- /hero -->
